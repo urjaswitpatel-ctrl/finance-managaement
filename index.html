@@ -3,418 +3,479 @@
 
 <head>
 
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-  <title>Finance EMI App</title>
+<title>Finance EMI App</title>
 
-  <style>
+<style>
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-    body{
+body{
 
-      font-family:Arial,sans-serif;
+font-family:Arial,sans-serif;
 
-      background:
-      linear-gradient(
-        135deg,
-        #0f172a,
-        #1e293b
-      );
+background:
+linear-gradient(
+135deg,
+#0f172a,
+#1e293b
+);
 
-      min-height:100vh;
+padding:20px;
 
-      display:flex;
+min-height:100vh;
+}
 
-      justify-content:center;
+.container{
 
-      align-items:center;
+max-width:1200px;
+margin:auto;
+}
 
-      padding:20px;
-    }
+.card{
 
-    .container{
+background:white;
 
-      width:100%;
-      max-width:900px;
-    }
+padding:35px;
 
-    .card{
+border-radius:20px;
 
-      background:white;
+box-shadow:
+0 10px 30px rgba(0,0,0,0.3);
 
-      border-radius:20px;
+margin-bottom:30px;
+}
 
-      padding:40px;
+h1{
 
-      box-shadow:
-      0 10px 30px rgba(0,0,0,0.3);
-    }
+text-align:center;
 
-    h1{
+margin-bottom:10px;
 
-      text-align:center;
+color:#0f172a;
+}
 
-      color:#0f172a;
+.subtitle{
 
-      margin-bottom:10px;
+text-align:center;
 
-      font-size:38px;
-    }
+color:gray;
 
-    .subtitle{
+margin-bottom:30px;
+}
 
-      text-align:center;
+.form-grid{
 
-      color:gray;
+display:grid;
 
-      margin-bottom:35px;
+grid-template-columns:
+repeat(auto-fit,minmax(250px,1fr));
 
-      font-size:16px;
-    }
+gap:20px;
+}
 
-    .form-grid{
+input{
 
-      display:grid;
+padding:15px;
 
-      grid-template-columns:
-      repeat(auto-fit,minmax(250px,1fr));
+border-radius:12px;
 
-      gap:20px;
-    }
+border:1px solid #cbd5e1;
 
-    input{
+font-size:15px;
+}
 
-      padding:15px;
+input:focus{
 
-      border-radius:12px;
+outline:none;
 
-      border:1px solid #cbd5e1;
+border-color:#2563eb;
 
-      font-size:15px;
+box-shadow:
+0 0 10px rgba(37,99,235,0.3);
+}
 
-      transition:0.3s;
-    }
+button{
 
-    input:focus{
+padding:15px;
 
-      outline:none;
+border:none;
 
-      border-color:#2563eb;
+border-radius:12px;
 
-      box-shadow:
-      0 0 10px rgba(37,99,235,0.3);
-    }
+background:#2563eb;
 
-    button{
+color:white;
 
-      width:100%;
+font-size:16px;
 
-      margin-top:30px;
+cursor:pointer;
 
-      padding:16px;
+margin-top:20px;
 
-      border:none;
+width:100%;
+}
 
-      border-radius:14px;
+button:hover{
+background:#1d4ed8;
+}
 
-      background:#2563eb;
+#result{
 
-      color:white;
+margin-top:30px;
 
-      font-size:18px;
+padding:25px;
 
-      cursor:pointer;
+border-radius:15px;
 
-      transition:0.3s;
-    }
+background:#eff6ff;
 
-    button:hover{
+line-height:2;
 
-      background:#1d4ed8;
+font-size:18px;
 
-      transform:translateY(-2px);
-    }
+font-weight:bold;
 
-    #result{
+color:#1e3a8a;
+}
 
-      margin-top:30px;
+.customer-card{
 
-      background:#eff6ff;
+background:white;
 
-      padding:30px;
+padding:25px;
 
-      border-radius:18px;
+border-radius:18px;
 
-      line-height:2;
+margin-bottom:20px;
 
-      color:#1e3a8a;
+box-shadow:
+0 5px 15px rgba(0,0,0,0.1);
+}
 
-      font-size:20px;
+.customer-card h3{
 
-      font-weight:bold;
-    }
+margin-bottom:15px;
 
-    .label{
+color:#0f172a;
+}
 
-      color:#334155;
-    }
+.delete-btn{
 
-    @media(max-width:600px){
+background:#dc2626;
 
-      .card{
-        padding:25px;
-      }
+margin-top:15px;
+}
 
-      h1{
-        font-size:28px;
-      }
-    }
+.delete-btn:hover{
+background:#b91c1c;
+}
 
-  </style>
+@media(max-width:600px){
+
+.card{
+padding:20px;
+}
+
+.customer-card{
+padding:20px;
+}
+}
+
+</style>
 
 </head>
 
 <body>
 
-  <div class="container">
+<div class="container">
 
-    <div class="card">
+<div class="card">
 
-      <h1>
-        Finance EMI App
-      </h1>
+<h1>
+Finance EMI App
+</h1>
 
-      <p class="subtitle">
-        Customer Loan & EMI Calculator
-      </p>
+<p class="subtitle">
+Customer Loan & EMI Management
+</p>
 
-      <div class="form-grid">
+<div class="form-grid">
 
-        <input
-          type="text"
-          id="name"
-          placeholder="Customer Name">
+<input type="text"
+id="name"
+placeholder="Customer Name">
 
-        <input
-          type="text"
-          id="phone"
-          placeholder="WhatsApp Number">
+<input type="text"
+id="phone"
+placeholder="WhatsApp Number">
 
-        <input
-          type="text"
-          id="product"
-          placeholder="Product Name">
+<input type="text"
+id="product"
+placeholder="Product Name">
 
-        <input
-          type="number"
-          id="productPrice"
-          placeholder="Product Price">
+<input type="number"
+id="productPrice"
+placeholder="Product Price">
 
-        <input
-          type="number"
-          id="downPayment"
-          placeholder="Down Payment">
+<input type="number"
+id="downPayment"
+placeholder="Down Payment">
 
-        <input
-          type="number"
-          id="rate"
-          placeholder="Interest Rate %">
+<input type="number"
+id="rate"
+placeholder="Interest Rate %">
 
-        <input
-          type="number"
-          id="months"
-          placeholder="Loan Duration (Months)">
+<input type="number"
+id="months"
+placeholder="Loan Duration">
 
-        <input
-          type="date"
-          id="nextDate">
+<input type="date"
+id="nextDate">
 
-      </div>
+</div>
 
-      <button onclick="calculateEMI()">
-        Calculate EMI
-      </button>
+<button onclick="saveCustomer()">
+Save Customer
+</button>
 
-      <div id="result"></div>
+<div id="result"></div>
 
-    </div>
+</div>
 
-  </div>
+<h2 style="color:white;margin-bottom:20px;">
+Saved Customers
+</h2>
 
-  <script>
+<div id="customerList"></div>
 
-    function calculateEMI(){
+</div>
 
-      let name =
-      document.getElementById("name").value;
+<script type="module">
 
-      let phone =
-      document.getElementById("phone").value;
+import { initializeApp }
 
-      let product =
-      document.getElementById("product").value;
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-      let productPrice =
-      parseFloat(
-      document.getElementById("productPrice").value
-      );
+import {
 
-      let downPayment =
-      parseFloat(
-      document.getElementById("downPayment").value
-      );
+getFirestore,
+collection,
+addDoc,
+getDocs,
+deleteDoc,
+doc
 
-      let rate =
-      parseFloat(
-      document.getElementById("rate").value
-      );
+}
 
-      let months =
-      parseInt(
-      document.getElementById("months").value
-      );
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-      let nextDate =
-      document.getElementById("nextDate").value;
+const firebaseConfig = {
+  apiKey: "AIzaSyDQoK09Z2OXJzhOvFR361_WNTuiz1Ry3Nw",
+  authDomain: "finance-reminder-893f6.firebaseapp.com",
+  databaseURL: "https://finance-reminder-893f6-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "finance-reminder-893f6",
+  storageBucket: "finance-reminder-893f6.firebasestorage.app",
+  messagingSenderId: "902285544691",
+  appId: "1:902285544691:web:49e85893272d346db77b86"
+};
 
-      let loanAmount =
-      productPrice - downPayment;
+const app =
+initializeApp(firebaseConfig);
 
-      let monthlyRate =
-      rate / 12 / 100;
+const db =
+getFirestore(app);
 
-      let emi =
+window.saveCustomer =
+async function(){
 
-      (
-        loanAmount *
-        monthlyRate *
-        Math.pow(
-          1 + monthlyRate,
-          months
-        )
-      )
+let name =
+document.getElementById("name").value;
 
-      /
+let phone =
+document.getElementById("phone").value;
 
-      (
-        Math.pow(
-          1 + monthlyRate,
-          months
-        ) - 1
-      );
+let product =
+document.getElementById("product").value;
 
-      emi = emi.toFixed(2);
+let productPrice =
+parseFloat(
+document.getElementById("productPrice").value
+);
 
-      let totalPayment =
-      (emi * months).toFixed(2);
+let downPayment =
+parseFloat(
+document.getElementById("downPayment").value
+);
 
-      let totalInterest =
-      (totalPayment - loanAmount).toFixed(2);
+let rate =
+parseFloat(
+document.getElementById("rate").value
+);
 
-      document.getElementById("result")
-      .innerHTML = `
+let months =
+parseInt(
+document.getElementById("months").value
+);
 
-      <div>
+let nextDate =
+document.getElementById("nextDate").value;
 
-      <span class="label">
-      Customer:
-      </span>
+let loanAmount =
+productPrice - downPayment;
 
-      ${name}
+let monthlyRate =
+rate / 12 / 100;
 
-      <br>
+let emi =
 
-      <span class="label">
-      Product:
-      </span>
+(
+loanAmount *
+monthlyRate *
+Math.pow(
+1 + monthlyRate,
+months
+)
+)
 
-      ${product}
+/
 
-      <br>
+(
+Math.pow(
+1 + monthlyRate,
+months
+) - 1
+);
 
-      <span class="label">
-      Product Price:
-      </span>
+emi =
+emi.toFixed(2);
 
-      ₹${productPrice}
+let totalPayment =
+(emi * months).toFixed(2);
 
-      <br>
+let totalInterest =
+(totalPayment - loanAmount).toFixed(2);
 
-      <span class="label">
-      Down Payment:
-      </span>
+document.getElementById("result")
+.innerHTML = `
 
-      ₹${downPayment}
+Loan Amount:
+₹${loanAmount}
 
-      <br>
+<br><br>
 
-      <span class="label">
-      Loan Amount:
-      </span>
+Monthly EMI:
+₹${emi}
 
-      ₹${loanAmount}
+<br><br>
 
-      <br>
+Total Interest:
+₹${totalInterest}
 
-      <span class="label">
-      Interest Rate:
-      </span>
+`;
 
-      ${rate}%
+await addDoc(
+collection(db,"customers"),
+{
 
-      <br>
+name,
+phone,
+product,
+productPrice,
+downPayment,
+loanAmount,
+rate,
+months,
+emi,
+nextDate
 
-      <span class="label">
-      Duration:
-      </span>
+}
+);
 
-      ${months} Months
+alert("Customer Saved!");
 
-      <br>
+loadCustomers();
+}
 
-      <span class="label">
-      Monthly EMI:
-      </span>
+async function loadCustomers(){
 
-      ₹${emi}
+const querySnapshot =
+await getDocs(
+collection(db,"customers")
+);
 
-      <br>
+let html = "";
 
-      <span class="label">
-      Total Interest:
-      </span>
+querySnapshot.forEach((docSnap)=>{
 
-      ₹${totalInterest}
+const data =
+docSnap.data();
 
-      <br>
+html += `
 
-      <span class="label">
-      Total Payment:
-      </span>
+<div class="customer-card">
 
-      ₹${totalPayment}
+<h3>
+${data.name}
+</h3>
 
-      <br>
+<p>
+<b>Product:</b>
+${data.product}
+</p>
 
-      <span class="label">
-      Next EMI Date:
-      </span>
+<p>
+<b>Loan Amount:</b>
+₹${data.loanAmount}
+</p>
 
-      ${nextDate}
+<p>
+<b>Monthly EMI:</b>
+₹${data.emi}
+</p>
 
-      </div>
-      `;
-    }
+<p>
+<b>Next EMI Date:</b>
+${data.nextDate}
+</p>
 
-  </script>
+<button
+class="delete-btn"
+onclick="deleteCustomer('${docSnap.id}')">
+
+Delete
+
+</button>
+
+</div>
+`;
+});
+
+document.getElementById("customerList")
+.innerHTML = html;
+}
+
+window.deleteCustomer =
+async function(id){
+
+await deleteDoc(
+doc(db,"customers",id)
+);
+
+loadCustomers();
+}
+
+loadCustomers();
+
+</script>
 
 </body>
 </html>
